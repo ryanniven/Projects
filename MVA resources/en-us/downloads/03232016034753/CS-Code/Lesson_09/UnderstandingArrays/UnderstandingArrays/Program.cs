@@ -29,7 +29,11 @@ namespace UnderstandingArrays
             */
 
             /*
+            declaring list called numbers, 5 is how many elements in array (size of list)
+            
             int[] numbers = new int[5];
+            
+            putting elements in array (items on list)
 
             numbers[0] = 4;
             numbers[1] = 8;

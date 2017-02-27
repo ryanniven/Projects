@@ -20,9 +20,15 @@ namespace ForIteration
                     break;
 
                 }
-
-
             }
+
+            //double tab for snippets which will give you example placeholder values
+            for (int myValue = 0; myValue < 12; myValue++)
+            {
+                Console.WriteLine();
+            }
+
+
             Console.ReadLine();
         }
     }
