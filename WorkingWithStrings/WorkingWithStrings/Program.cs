@@ -41,14 +41,22 @@ namespace WorkingWithStrings
             //  myString.Length, myString.Trim().Length);
 
 
+            /*
+             string myString = "";
+             for (int i = 0; i < 100; i++)
+             {
+                 myString += "--" + i.ToString();
+             }
+ */
 
-            string myString = "";
+            //string builder is a more efficient way to alot of string manipulation / concatination
+            StringBuilder myString = new StringBuilder();
+
             for (int i = 0; i < 100; i++)
             {
-                myString += "--" + i.ToString();
+                myString.Append("--");
+                myString.Append(i);
             }
-
-
 
 
 
