@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Acme_Quizzes_App.Resources.values;
 
 namespace Acme_Quizzes_App
 {
@@ -22,6 +23,12 @@ namespace Acme_Quizzes_App
 
             SetContentView(Resource.Layout.QuizQuestions);
 
+            Button NextButton = FindViewById<Button>(Resource.Id.NextButton);
+
+            NextButton.Click += delegate
+            {
+                StartActivity(typeof(QuizResults));
+            };
         }
     }
 }
