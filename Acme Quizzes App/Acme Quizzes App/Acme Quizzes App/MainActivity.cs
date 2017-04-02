@@ -28,13 +28,7 @@ namespace Acme_Quizzes_App
             {
                 StartActivity(typeof(QuizQuestions));
             };
-
-            Environment.
-
-            using (var conn = new SQLite.SQLiteConnection(dbPath))
-            {
-                // Do stuff here...
-            }
+            
         }
 
         private void NumberOfQuestions_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)

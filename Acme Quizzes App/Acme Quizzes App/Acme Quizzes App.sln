@@ -5,12 +5,12 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme Quizzes App", "Acme Quizzes App\Acme Quizzes App.csproj", "{87DCEBCA-803C-4AB1-9C62-222A01FDCA35}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "QuizLibrary", "SharedProject2\QuizLibrary.shproj", "{C95579ED-E39F-4CE3-894D-F3D8C9AA4A83}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "QuizLibrary", "QuizLibrary\QuizLibrary.shproj", "{52C319A5-235E-4356-A3F0-654E9BA5FC5E}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		SharedProject2\SharedProject2.projitems*{87dcebca-803c-4ab1-9c62-222a01fdca35}*SharedItemsImports = 4
-		SharedProject2\SharedProject2.projitems*{c95579ed-e39f-4ce3-894d-f3d8c9aa4a83}*SharedItemsImports = 13
+		QuizLibrary\QuizLibrary.projitems*{52c319a5-235e-4356-a3f0-654e9ba5fc5e}*SharedItemsImports = 13
+		QuizLibrary\QuizLibrary.projitems*{87dcebca-803c-4ab1-9c62-222a01fdca35}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
