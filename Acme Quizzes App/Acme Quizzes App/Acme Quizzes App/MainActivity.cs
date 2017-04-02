@@ -28,6 +28,13 @@ namespace Acme_Quizzes_App
             {
                 StartActivity(typeof(QuizQuestions));
             };
+
+            Environment.
+
+            using (var conn = new SQLite.SQLiteConnection(dbPath))
+            {
+                // Do stuff here...
+            }
         }
 
         private void NumberOfQuestions_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -37,6 +44,8 @@ namespace Acme_Quizzes_App
             string toast = string.Format("You have selected {0} questions", NumberOfQuestions.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
+
+
     }
 }
 

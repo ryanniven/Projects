@@ -26,6 +26,8 @@ namespace Acme_Quizzes_App
 		
 		public static void UpdateIdValues()
 		{
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Acme_Quizzes_App.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Acme_Quizzes_App.Resource.String.Hello;
 		}
 		
 		public partial class Array
