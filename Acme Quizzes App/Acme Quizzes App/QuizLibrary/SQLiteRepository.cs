@@ -46,7 +46,7 @@ namespace QuizLibrary
 
         public Question GetCorrectAnswer(string correctAnswer)
         {
-            throw new NotImplementedException();
+            return dbLayer.GetCorrectAnswer("This is the answer");
         }
 
         public Question GetNextQuestion(int questionID)
@@ -56,7 +56,7 @@ namespace QuizLibrary
 
         public Question GetQuestionByText(string questionText)
         {
-            return dbLayer.GetQuestionByText("this is a test");
+            return dbLayer.GetQuestionByText("this is a test?");
         }
 
         public List<Question> GetAllQuestions()

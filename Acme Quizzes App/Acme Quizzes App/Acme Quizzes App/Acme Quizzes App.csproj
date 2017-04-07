@@ -72,7 +72,7 @@
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
-    <None Include="Assets\AboutAssets.txt" />
+    <AndroidAsset Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\QuizQuestions.axml">
       <SubType>Designer</SubType>
     </AndroidResource>

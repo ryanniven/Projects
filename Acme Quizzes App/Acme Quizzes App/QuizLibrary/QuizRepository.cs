@@ -14,7 +14,7 @@ namespace QuizLibrary
         //TODO admin functionality
 
         void AddNewQuestion(Question question);
-        void EditAQuestion(Question quesiton);
-        void DeleteAQuestion(Question question);
+        void EditQuestion(Question quesiton);
+        void DeleteQuestion(Question question);
     }
 }
