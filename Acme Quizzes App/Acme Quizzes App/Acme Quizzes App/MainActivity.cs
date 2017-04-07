@@ -6,6 +6,7 @@ using QuizLibrary;
 using System.IO;
 using Java.IO;
 using Android.Content;
+using System.Linq;
 
 namespace Acme_Quizzes_App
 {
@@ -18,30 +19,11 @@ namespace Acme_Quizzes_App
 
             SetContentView(Resource.Layout.Main);
 
-            Spinner NumberOfQuestions = FindViewById<Spinner>(Resource.Id.NumberOfQuestions);
-            Button StartButton = FindViewById<Button>(Resource.Id.StartButton);
-
-            NumberOfQuestions.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(NumberOfQuestions_ItemSelected);
-            var adapter = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.number_of_questions_array, Android.Resource.Layout.SimpleSpinnerItem);
-
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            NumberOfQuestions.Adapter = adapter;
-
-            StartButton.Click += delegate
-            {
-                var activity2 = new Intent(this, typeof(QuizQuestions));
-                QuizQuestions.
-                StartActivity(typeof(QuizQuestions));
-            };
-
-
             //copying asset to local db
             string sqliteFileName = "Quiz.sqlite";
             string libraryPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
 
             var path = Path.Combine(libraryPath, sqliteFileName);
-            //if there isn't a db in the path... create one!
             if (!System.IO.File.Exists(path))
             {
                 using (var f = this.Assets.Open("Quiz.sqlite"))
@@ -52,7 +34,35 @@ namespace Acme_Quizzes_App
                     }
                 }
             }
-               
+
+            Spinner NumberOfQuestions = FindViewById<Spinner>(Resource.Id.NumberOfQuestions);
+           
+            
+            Button StartButton = FindViewById<Button>(Resource.Id.StartButton);
+            var questions = new SQLiteRepository().GetAllQuestions();
+
+            NumberOfQuestions.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(NumberOfQuestions_ItemSelected);
+            var adapter = new ArrayAdapter<string>(
+                this, Android.Resource.Layout.SimpleSpinnerItem, questions.Select((question, index) => (index + 1).ToString()).ToList()
+            ); 
+
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            NumberOfQuestions.Adapter = adapter;
+
+            StartButton.Click += delegate
+            {
+                var numberOfQuesitons = new Intent(this, typeof(QuizQuestions));
+                numberOfQuesitons.PutExtra("spin", (string)NumberOfQuestions.GetItemAtPosition(position));
+                StartActivity(numberOfQuesitons);
+            };
+
+
+           
+
+        }
+        public int position
+        {
+            get; set;
         }
 
         private void NumberOfQuestions_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)

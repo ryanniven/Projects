@@ -105,11 +105,11 @@ namespace Acme_Quizzes_App
 			// aapt resource value: 0x7f060002
 			public const int Question = 2131099650;
 			
+			// aapt resource value: 0x7f06000a
+			public const int Restart = 2131099658;
+			
 			// aapt resource value: 0x7f060001
 			public const int StartButton = 2131099649;
-			
-			// aapt resource value: 0x7f06000a
-			public const int restart = 2131099658;
 			
 			static Id()
 			{

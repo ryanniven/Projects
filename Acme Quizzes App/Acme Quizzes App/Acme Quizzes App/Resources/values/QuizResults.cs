@@ -20,6 +20,13 @@ namespace Acme_Quizzes_App.Resources.values
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.QuizResults);
+
+            Button Restart = FindViewById<Button>(Resource.Id.Restart);
+
+            Restart.Click += delegate
+            {
+                StartActivity(typeof(MainActivity));
+            };
         }
     }
 }
