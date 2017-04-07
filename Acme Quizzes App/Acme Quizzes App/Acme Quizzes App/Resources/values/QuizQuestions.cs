@@ -30,50 +30,64 @@ namespace Acme_Quizzes_App
         private string correctAnswer;
         
 
-
-
-
-
-
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.QuizQuestions);
 
-
             var questions = new SQLiteRepository().GetAllQuestions();
- 
+            int maxNumberOfQuestions = Intent.GetIntExtra("MaxNumberOfQuestions", 1);
+            int currentQuestion = Intent.GetIntExtra("CurrentQuestion", 1);
+            Question question = questions[currentQuestion - 1];
+            int correctAnswers = Intent.GetIntExtra("CorrectAnswers",0);
+            correctAnswer = question.CorrectAnswer;
+
             QuestionText = FindViewById<TextView>(Resource.Id.Question);
-            QuestionText.SetText(questions[0].QuestionText, TextView.BufferType.Normal);
+            QuestionText.SetText(question.QuestionText, TextView.BufferType.Normal);
 
             Option1 = FindViewById<RadioButton>(Resource.Id.AnswerA);
-            Option1.SetText(questions[0].Option1, RadioButton.BufferType.Normal);
+            Option1.SetText(question.Option1, RadioButton.BufferType.Normal);
 
             Option2 = FindViewById<RadioButton>(Resource.Id.AnswerB);
-            Option2.SetText(questions[0].Option2, RadioButton.BufferType.Normal);
+            Option2.SetText(question.Option2, RadioButton.BufferType.Normal);
 
             Option3 = FindViewById<RadioButton>(Resource.Id.AnswerC);
-            Option3.SetText(questions[0].Option3, RadioButton.BufferType.Normal);
+            Option3.SetText(question.Option3, RadioButton.BufferType.Normal);
 
             Option4 = FindViewById<RadioButton>(Resource.Id.AnswerD);
-            Option4.SetText(questions[0].Option4, RadioButton.BufferType.Normal);
+            Option4.SetText(question.Option4, RadioButton.BufferType.Normal);
 
             //if (!questions[].Option5 == null )
             Option5 = FindViewById<RadioButton>(Resource.Id.AnswerE);
-            Option5.SetText(questions[0].Option5, RadioButton.BufferType.Normal);
+            Option5.SetText(question.Option5, RadioButton.BufferType.Normal);
 
             Button NextButton = FindViewById<Button>(Resource.Id.NextButton);
 
+            //string.IsNullOrWhitespace()
+
             NextButton.Click += delegate
             {
-                Intent intent = getIntent();
+
+                switch (correctAnswer)
+                {
+                    case "1":
+                        if (Option1.Selected) & { correctAnswers++; }
+                        break;                     
+                }
+
+                if (currentQuestion < maxNumberOfQuestions)
+                {
+                    var numberOfQuesitons = new Intent(this, typeof(QuizQuestions));
+                    numberOfQuesitons.PutExtra("MaxNumberOfQuestions", (int)maxNumberOfQuestions);
+                    numberOfQuesitons.PutExtra("CurrentQuestion", (int) (currentQuestion + 1));
+                    StartActivity(numberOfQuesitons);
+                }
+
+
+                else StartActivity(typeof(QuizResults));
                 
-                for (int i = 0; i < )
-
-                StartActivity(typeof(QuizResults));
             };
-
 
         }
     }

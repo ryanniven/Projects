@@ -42,8 +42,8 @@ namespace Acme_Quizzes_App
             var questions = new SQLiteRepository().GetAllQuestions();
 
             NumberOfQuestions.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(NumberOfQuestions_ItemSelected);
-            var adapter = new ArrayAdapter<string>(
-                this, Android.Resource.Layout.SimpleSpinnerItem, questions.Select((question, index) => (index + 1).ToString()).ToList()
+            var adapter = new ArrayAdapter<int>(
+                this, Android.Resource.Layout.SimpleSpinnerItem, questions.Select((question, index) => index + 1).ToList()
             ); 
 
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
@@ -52,17 +52,10 @@ namespace Acme_Quizzes_App
             StartButton.Click += delegate
             {
                 var numberOfQuesitons = new Intent(this, typeof(QuizQuestions));
-                numberOfQuesitons.PutExtra("spin", (string)NumberOfQuestions.GetItemAtPosition(position));
+                numberOfQuesitons.PutExtra("MaxNumberOfQuestions", (int)NumberOfQuestions.SelectedItem);
                 StartActivity(numberOfQuesitons);
             };
 
-
-           
-
-        }
-        public int position
-        {
-            get; set;
         }
 
         private void NumberOfQuestions_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)

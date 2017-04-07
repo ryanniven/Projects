@@ -6,9 +6,6 @@ namespace QuizLibrary
 {
     public interface QuizRepository
     {
-        Question GetNextQuestion(int questionID);
-        Question GetCorrectAnswer(string correctAnswer);
-        Question GetQuestionByText(string questionText);
         List<Question> GetAllQuestions();
 
         //TODO admin functionality

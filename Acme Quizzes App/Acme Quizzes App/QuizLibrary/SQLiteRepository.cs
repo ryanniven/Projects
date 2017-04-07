@@ -44,21 +44,6 @@ namespace QuizLibrary
             dbLayer.EditQuestion(question);
         }
 
-        public Question GetCorrectAnswer(string correctAnswer)
-        {
-            return dbLayer.GetCorrectAnswer("This is the answer");
-        }
-
-        public Question GetNextQuestion(int questionID)
-        {
-            return dbLayer.GetNextQuestion(1);
-        }
-
-        public Question GetQuestionByText(string questionText)
-        {
-            return dbLayer.GetQuestionByText("this is a test?");
-        }
-
         public List<Question> GetAllQuestions()
         {
             return dbLayer.GetQuestions();
