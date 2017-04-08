@@ -72,21 +72,37 @@ namespace Acme_Quizzes_App
                 switch (correctAnswer)
                 {
                     case "1":
-                        if (Option1.Selected) & { correctAnswers++; }
-                        break;                     
+                        if (Option1.Selected) correctAnswers++; 
+                        break;
+                    case "2":
+                        if (Option1.Selected) correctAnswers++;
+                        break;
+                    case "3":
+                        if (Option1.Selected) correctAnswers++;
+                        break;
+                    case "4":
+                        if (Option1.Selected) correctAnswers++;
+                        break;
+                    case "5":
+                        if (Option1.Selected) correctAnswers++;
+                        break;
                 }
 
                 if (currentQuestion < maxNumberOfQuestions)
                 {
                     var numberOfQuesitons = new Intent(this, typeof(QuizQuestions));
                     numberOfQuesitons.PutExtra("MaxNumberOfQuestions", (int)maxNumberOfQuestions);
-                    numberOfQuesitons.PutExtra("CurrentQuestion", (int) (currentQuestion + 1));
+                    numberOfQuesitons.PutExtra("CurrentQuestion", (int)(currentQuestion + 1));
                     StartActivity(numberOfQuesitons);
                 }
 
 
-                else StartActivity(typeof(QuizResults));
-                
+                else
+                {
+                    var totalCorrect = new Intent(this, typeof(QuizResults));
+                    totalCorrect.PutExtra("QuizScore", (int)correctAnswers);
+                    StartActivity(totalCorrect);
+                }
             };
 
         }

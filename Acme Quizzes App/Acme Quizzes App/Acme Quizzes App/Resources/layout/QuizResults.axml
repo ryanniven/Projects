@@ -11,6 +11,11 @@
         android:layout_marginTop="10dip"
         android:text="@string/Results_text"
         android:id="@+id/Results" />
+    <TextView
+        android:id="@+id/ResultValue"
+        android:layout_width="match_parent"
+        android:layout_height="212.0dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
     <Button
         android:text="@string/Restart"
         android:layout_width="match_parent"

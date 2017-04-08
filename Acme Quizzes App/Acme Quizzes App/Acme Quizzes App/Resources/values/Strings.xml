@@ -5,5 +5,5 @@
     <string name="Instructions">Welcome to Acme Quizzes, to get started please select the number of questions below and click the start button!</string>
   <string name="Restart">Restart Quiz</string>
   <string name="number_of_questions">Select a number of questions</string>
-  <string name="Results_text">"You have scored..." </string>
+  <string name="Results_text">"Your have correctly answered..." </string>
 </resources>
