@@ -68,35 +68,33 @@ namespace Acme_Quizzes_App
 
             NextButton.Click += delegate
             {
-
                 switch (correctAnswer)
                 {
                     case "1":
-                        if (Option1.Selected) correctAnswers++; 
+                        if (Option1.Checked) correctAnswers++;
                         break;
                     case "2":
-                        if (Option1.Selected) correctAnswers++;
+                        if (Option2.Checked) correctAnswers++;
                         break;
                     case "3":
-                        if (Option1.Selected) correctAnswers++;
+                        if (Option3.Checked) correctAnswers++;
                         break;
                     case "4":
-                        if (Option1.Selected) correctAnswers++;
+                        if (Option4.Checked) correctAnswers++;
                         break;
                     case "5":
-                        if (Option1.Selected) correctAnswers++;
+                        if (Option5.Checked) correctAnswers++;
                         break;
                 }
-
+                
                 if (currentQuestion < maxNumberOfQuestions)
                 {
                     var numberOfQuesitons = new Intent(this, typeof(QuizQuestions));
                     numberOfQuesitons.PutExtra("MaxNumberOfQuestions", (int)maxNumberOfQuestions);
+                    numberOfQuesitons.PutExtra("CorrectAnswers", (int)correctAnswers);
                     numberOfQuesitons.PutExtra("CurrentQuestion", (int)(currentQuestion + 1));
                     StartActivity(numberOfQuesitons);
                 }
-
-
                 else
                 {
                     var totalCorrect = new Intent(this, typeof(QuizResults));

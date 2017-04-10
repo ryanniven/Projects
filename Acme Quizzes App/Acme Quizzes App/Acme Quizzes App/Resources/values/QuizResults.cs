@@ -23,9 +23,11 @@ namespace Acme_Quizzes_App.Resources.values
 
             Button Restart = FindViewById<Button>(Resource.Id.Restart);
             TextView Result = FindViewById<TextView>(Resource.Id.ResultValue);
-            int quizScore = Intent.GetIntExtra("QuizScore", 1);
+            int quizScore = Intent.GetIntExtra("QuizScore", 0);
 
-            //Result.SetText(quizScore,TextView.BufferType.Normal);
+            //Result.SetText(("You have scored {0} in this quiz", quizScore).ToString); 
+            
+            Result.SetText(quizScore.ToString(), TextView.BufferType.Normal);
 
             Restart.Click += delegate
             {
