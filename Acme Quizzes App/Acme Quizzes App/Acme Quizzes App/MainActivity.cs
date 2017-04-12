@@ -41,11 +41,13 @@ namespace Acme_Quizzes_App
             Button StartButton = FindViewById<Button>(Resource.Id.StartButton);
             var questions = new SQLiteRepository().GetAllQuestions();
 
+           //binds adapter to simple spinner item
             NumberOfQuestions.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(NumberOfQuestions_ItemSelected);
             var adapter = new ArrayAdapter<int>(
                 this, Android.Resource.Layout.SimpleSpinnerItem, questions.Select((question, index) => index + 1).ToList()
             ); 
 
+            //ensures spinner will display the amount of questions in the database
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             NumberOfQuestions.Adapter = adapter;
 

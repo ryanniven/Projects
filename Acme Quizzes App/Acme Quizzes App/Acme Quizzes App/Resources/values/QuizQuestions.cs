@@ -28,6 +28,7 @@ namespace Acme_Quizzes_App
         private RadioButton Option4;
         private RadioButton Option5;
         private string correctAnswer;
+       
         
 
         protected override void OnCreate(Bundle bundle)
@@ -42,6 +43,7 @@ namespace Acme_Quizzes_App
             Question question = questions[currentQuestion - 1];
             int correctAnswers = Intent.GetIntExtra("CorrectAnswers",0);
             correctAnswer = question.CorrectAnswer;
+            int questionsAnswered = maxNumberOfQuestions;
 
             QuestionText = FindViewById<TextView>(Resource.Id.Question);
             QuestionText.SetText(question.QuestionText, TextView.BufferType.Normal);
@@ -57,15 +59,16 @@ namespace Acme_Quizzes_App
 
             Option4 = FindViewById<RadioButton>(Resource.Id.AnswerD);
             Option4.SetText(question.Option4, RadioButton.BufferType.Normal);
-
-            //if (!questions[].Option5 == null )
+            
             Option5 = FindViewById<RadioButton>(Resource.Id.AnswerE);
             Option5.SetText(question.Option5, RadioButton.BufferType.Normal);
+                                                                                                                 
+            if (Option5.Text == "")
+            {
 
+                Option5.Visibility = ViewStates.Invisible;       
+            }
             Button NextButton = FindViewById<Button>(Resource.Id.NextButton);
-
-            //string.IsNullOrWhitespace()
-
             NextButton.Click += delegate
             {
                 switch (correctAnswer)
@@ -99,6 +102,7 @@ namespace Acme_Quizzes_App
                 {
                     var totalCorrect = new Intent(this, typeof(QuizResults));
                     totalCorrect.PutExtra("QuizScore", (int)correctAnswers);
+                    totalCorrect.PutExtra("QuestionsAttempted", (int)questionsAnswered);
                     StartActivity(totalCorrect);
                 }
             };

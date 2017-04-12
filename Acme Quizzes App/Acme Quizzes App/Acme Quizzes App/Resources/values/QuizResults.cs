@@ -23,11 +23,14 @@ namespace Acme_Quizzes_App.Resources.values
 
             Button Restart = FindViewById<Button>(Resource.Id.Restart);
             TextView Result = FindViewById<TextView>(Resource.Id.ResultValue);
-            int quizScore = Intent.GetIntExtra("QuizScore", 0);
+            TextView Result1 = FindViewById<TextView>(Resource.Id.QuestionsAnswered);
 
-            //Result.SetText(("You have scored {0} in this quiz", quizScore).ToString); 
+            int quizScore = Intent.GetIntExtra("QuizScore", 0);
+            int questionsAttemped = Intent.GetIntExtra("QuestionsAttempted", 0);
             
             Result.SetText(quizScore.ToString(), TextView.BufferType.Normal);
+
+            Result1.SetText(questionsAttemped.ToString(), TextView.BufferType.Normal);
 
             Restart.Click += delegate
             {

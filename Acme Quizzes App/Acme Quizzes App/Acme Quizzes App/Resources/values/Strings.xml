@@ -6,4 +6,6 @@
   <string name="Restart">Restart Quiz</string>
   <string name="number_of_questions">Select a number of questions</string>
   <string name="Results_text">"Your have correctly answered..." </string>
+  <string name="Results1_text">"out of" </string>
+
 </resources>
