@@ -6,12 +6,13 @@ using System.Text;
 namespace QuizLibrary
 {
     [Table("Questions")]
+    //added a table attribute so it knows this class will be mapped to a table
     public class Question
     {
         public Question()
         {
         }
-
+        //creating contructor class for the question, this will store all the data from each field in the database
         public Question(int questionID, string questionText, string option1, string option2, string option3, string option4, string option5, string correctAnswer)
         {
             QuestionID = questionID;
@@ -23,7 +24,9 @@ namespace QuizLibrary
             Option5 = option5;
             CorrectAnswer = correctAnswer;
         }
+        //used autoincrement for when we add admin functionaility, this will generate the ID when a new record is added to the table        
         [PrimaryKey, AutoIncrement]
+        //properties of each parameter that map to the constructor
         public int QuestionID {
             get;
             set;
